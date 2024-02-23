@@ -1,17 +1,22 @@
-import { productObject } from "@/type/Product";
+"use client";
+
 import React from "react";
 
 interface cardProps {
-	product: productObject;
+	id: number;
+	name: string;
 }
-export default function Card({ product }: cardProps) {
-	const { id, title, body } = product;
+export default function Card({ id, name }: cardProps) {
+	async function deleteProduct() {
+		await fetch(`/backend?id=${id}`);
+	}
 	return (
 		<div className="bg-slate-100 text-black m-1 p-2 rounded">
 			<span>{id}</span>
-			<h2>title: {title}</h2>
-			<p>body: {body}</p>
-			<a href={`/product/${id}`}>click</a>
+			<h2>title: {name}</h2>
+
+			{/* <a href={`/product/${id}`}>click</a> */}
+			<button onClick={deleteProduct}>CLICK</button>
 		</div>
 	);
 }
