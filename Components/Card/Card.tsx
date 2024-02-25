@@ -1,22 +1,28 @@
 "use client";
 
-import React from "react";
-
+import { Product as ProducType } from "@/prisma/generated/client";
 interface cardProps {
-	id: number;
-	name: string;
+	product: ProducType;
 }
-export default function Card({ id, name }: cardProps) {
+export default function Card({ product }: cardProps) {
 	async function deleteProduct() {
-		await fetch(`/backend?id=${id}`);
+		await fetch(`/backend?id=${product.id}`);
 	}
 	return (
-		<div className="bg-slate-100 text-black m-1 p-2 rounded">
-			<span>{id}</span>
-			<h2>title: {name}</h2>
-
-			{/* <a href={`/product/${id}`}>click</a> */}
-			<button onClick={deleteProduct}>CLICK</button>
+		<div className="bg-slate-100 text-black m-1 p-2 w-96 rounded">
+			<span>{product.id}</span>
+			<h1 className="font-bold">{product.name}</h1>
+			<p>{product.description}</p>
+			<div className="flex justify-evenly">
+				<button className="rounded-full p-2 bg-amber-400 hover:scale-110 ease-in duration-200">
+					<a href={`/product/${product.id}`}>dettagli</a>
+				</button>
+				<button
+					onClick={deleteProduct}
+					className="rounded-full p-2 bg-red-500 hover:scale-110 ease-in duration-200">
+					delete
+				</button>
+			</div>
 		</div>
 	);
 }

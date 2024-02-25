@@ -1,14 +1,15 @@
 import Card from "@/Components/Card/Card";
-import { productObject } from "@/type/Product";
+import { prisma } from "@/lib/prisma";
+import { Product as ProductType } from "@/prisma/generated/client";
 
 export default async function ProductPage() {
-	const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-	const products: productObject[] = await res.json();
+	const products: ProductType[] = await prisma.product.findMany();
+
 	console.log(products);
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
-			{products.map((el: productObject) => (
+		<main className="flex min-h-screen items-center justify-between p-24">
+			{products.map((el: ProductType) => (
 				<Card
 					key={el.id}
 					product={el}

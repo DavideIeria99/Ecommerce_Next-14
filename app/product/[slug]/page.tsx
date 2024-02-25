@@ -7,8 +7,10 @@ export default async function page({ params }: { params: { slug: string } }) {
 	const products: productObject = await res.json();
 	console.log("prova", products);
 	return (
-		<div className="bg-slate-50 text-black mt-2">
-			<h1>{products.title}</h1>
+		<div className=" min-h-screen">
+			<div className="bg-slate-50 text-black mt-2">
+				<h1>{products.title}</h1>
+			</div>
 		</div>
 	);
 }

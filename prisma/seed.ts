@@ -1,5 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
-const { productsData } = require("./data");
+import { productsData } from "./data";
 const prisma = new PrismaClient();
 
 const load = async () => {
