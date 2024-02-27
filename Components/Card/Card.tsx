@@ -5,13 +5,15 @@ interface cardProps {
 	product: ProducType;
 }
 export default function Card({ product }: cardProps) {
+	const price = parseFloat(product.price.toString());
 	async function deleteProduct() {
 		await fetch(`/backend?id=${product.id}`);
 	}
 	return (
 		<div className="bg-slate-100 text-black m-1 p-2 w-96 rounded">
-			<span>{product.id}</span>
+			<span className="border border-1 rounded">{product.id}</span>
 			<h1 className="font-bold">{product.name}</h1>
+			<p>€ {price}</p>
 			<p>{product.description}</p>
 			<div className="flex justify-evenly">
 				<button className="rounded-full p-2 bg-amber-400 hover:scale-110 ease-in duration-200">

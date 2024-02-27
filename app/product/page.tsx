@@ -9,12 +9,13 @@ export default async function ProductPage() {
 
 	return (
 		<main className="flex min-h-screen items-center justify-between p-24">
-			{products.map((el: ProductType) => (
-				<Card
-					key={el.id}
-					product={el}
-				/>
-			))}
+			{products &&
+				products.map((el: ProductType) => (
+					<Card
+						key={el.id}
+						product={el}
+					/>
+				))}
 		</main>
 	);
 }
