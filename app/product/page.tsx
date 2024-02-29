@@ -1,6 +1,6 @@
 import Card from "@/Components/Card/Card";
 import { prisma } from "@/lib/prisma";
-import { Product as ProductType } from "@/prisma/generated/client";
+import { Product as ProductType } from "@prisma/client";
 
 export default async function ProductPage() {
 	const products: ProductType[] = await prisma.product.findMany();

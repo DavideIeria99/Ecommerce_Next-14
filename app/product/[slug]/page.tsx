@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { Product as productType } from "@/prisma/generated/client";
+import { Product as productType } from "@prisma/client";
 
 const getProduct = async (id: number) => {
 	return await prisma.product.findUnique({ where: { id } });
