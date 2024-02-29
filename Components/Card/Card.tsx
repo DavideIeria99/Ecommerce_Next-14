@@ -1,5 +1,6 @@
 "use client";
 
+import { handlePayment } from "@/app/actions";
 import { Product as ProducType } from "@/prisma/generated/client";
 interface cardProps {
 	product: ProducType;
@@ -19,10 +20,15 @@ export default function Card({ product }: cardProps) {
 				<button className="rounded-full p-2 bg-amber-400 hover:scale-110 ease-in duration-200">
 					<a href={`/product/${product.id}`}>dettagli</a>
 				</button>
-				<button
+				{/* <button
 					onClick={deleteProduct}
 					className="rounded-full p-2 bg-red-500 hover:scale-110 ease-in duration-200">
 					delete
+				</button> */}
+				<button
+					onClick={() => handlePayment(product.stripePriceId)}
+					className="rounded-full p-2 bg-green-500 hover:scale-110 ease-in duration-200">
+					buy
 				</button>
 			</div>
 		</div>

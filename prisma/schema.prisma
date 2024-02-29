@@ -2,7 +2,6 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 generator client {
   provider = "prisma-client-js"
-  output = "./generated/client"
   previewFeatures = ["multiSchema"] 
 }
 datasource db {
@@ -15,8 +14,9 @@ model Product {
     id          Int       @id @default(autoincrement())
     name        String
     description String
-    price       Decimal
+    price       Decimal   @db.Decimal()
     image       String
+    stripePriceId String
 
     @@schema("public")
 }
