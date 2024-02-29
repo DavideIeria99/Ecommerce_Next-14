@@ -1,7 +1,7 @@
 "use client";
 
 import { handlePayment } from "@/app/actions";
-import { Product as ProducType } from "@/prisma/generated/client";
+import { Product as ProducType } from "@prisma/client";
 interface cardProps {
 	product: ProducType;
 }
