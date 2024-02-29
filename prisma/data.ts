@@ -1,5 +1,5 @@
-import { Product } from "./generated/client";
-import { Prisma } from "@prisma/client";
+
+import { Prisma, Product } from "@prisma/client";
 
 export const productsData: Partial<Product>[] = [
     {
