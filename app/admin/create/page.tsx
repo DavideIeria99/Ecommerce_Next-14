@@ -16,6 +16,7 @@ export default function CreatePage() {
 				description: productDescription,
 				price: productPrice,
 				image: productImage,
+				stripePriceId: "price_1Op8IFFv5uhheZYLojG5pBbw",
 			},
 		});
 		redirect("/admin");

@@ -4,9 +4,9 @@ import { revalidatePath } from "next/cache";
 import React from "react";
 import ProductAction from "./components/action";
 
-export const getProduct = async () => {
+async function getProduct() {
 	return await prisma.product.findMany();
-};
+}
 
 async function deleteProduct(id: number) {
 	"use server";
